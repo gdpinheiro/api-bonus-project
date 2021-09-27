@@ -1,0 +1,31 @@
+{
+  "name": "api-bonus-project",
+  "version": "1.0.0",
+  "description": "APIs Utilizadas:   * [Trakt.tv](https://trakt.docs.apiary.io/)   * [Fanart.tv](https://fanarttv.docs.apiary.io/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdpinheiro/api-bonus-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdpinheiro/api-bonus-project/issues"
+  },
+  "homepage": "https://github.com/gdpinheiro/api-bonus-project#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.6.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  }
+}

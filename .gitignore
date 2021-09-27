@@ -1,6 +1,9 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/node
-# Edit at https://www.toptal.com/developers/gitignore?templates=node
+# Created by https://www.toptal.com/developers/gitignore/api/dotenv,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=dotenv,node
+
+### dotenv ###
+.env
 
 ### Node ###
 # Logs
@@ -75,7 +78,6 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 .env.test
 .env.production
 
@@ -126,4 +128,4 @@ dist
 # Serverless Webpack directories
 .webpack/
 
-# End of https://www.toptal.com/developers/gitignore/api/node
+# End of https://www.toptal.com/developers/gitignore/api/dotenv,node
