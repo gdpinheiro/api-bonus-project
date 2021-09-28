@@ -19,6 +19,7 @@
   "homepage": "https://github.com/gdpinheiro/api-bonus-project#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
+    "eslint-config-trybe-fundamentals": "^1.1.1",
     "node-fetch": "^2.6.5"
   },
   "devDependencies": {
