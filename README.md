@@ -7,7 +7,7 @@ APIs Utilizadas:
 
 ### Requisitos obrigatórios:
 
-- [ ] Utilizar uma API externa. (Sugestão: dêem uma olhada nessa lista).
+- [ ] Utilizar uma API externa.
 - [ ] Utilizar funções HoF no projeto.
 - [ ] Deve existir alguma(s) manipulação(ões) do DOM a partir de um ação do usuário usando o addEventListener em algum(ns) elemento(s) do HTML.
 - [ ] Todas as HoF’s utilizadas no projeto devem ter, pelo menos, 1 teste de validação usando o Jest.

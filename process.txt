@@ -4,6 +4,8 @@ Escreve o termo da pesquisa
 Retornar uma lista com os itens pesquisados depois de clicar no botão search
 Clicando no item da lista ele abre um Modal com as informações do filme
 
+VALIDAÇÃO COM O JEST
+
 Pesquisa
   Implementar o botão de pesquisa
     Recuperar o texto do campo
@@ -22,7 +24,6 @@ Lista
     Criar os cards do resultado com os dados da Trakt e o poster
   Ao fazer uma nova pesquisa, os resultados antigos serão limpados
 
-
 Modal
   Exibir o Modal ao clicar num resultado da lista
     Fazer uma pesquisa na Trakt recuperando as informações completas
@@ -35,4 +36,3 @@ Modal
   Implementar o botão de fechar o card
     Retira a classe is-active
     Limpa os dados do modal
-

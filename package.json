@@ -4,7 +4,7 @@
   "description": "APIs Utilizadas:   * [Trakt.tv](https://trakt.docs.apiary.io/)   * [Fanart.tv](https://fanarttv.docs.apiary.io/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
