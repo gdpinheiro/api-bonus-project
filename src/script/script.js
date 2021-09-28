@@ -5,6 +5,7 @@
 const TKT_CID =
   "df7993d30d3bcdacc3e4bb5a9e359e8b2bd47b4a91e70d176b600a7a17321c2a";
 const FANART_KEY = "606bc502a124b7a38459fe07f9c74d22";
+const TMDB_KEY = "2d02c9dafd954f59df347ef511f7ccc9";
 
 // TRAKT API
 
@@ -32,14 +33,25 @@ const textQuerySearch = async (type, query) => {
   }
 };
 
-// FANART API
+// TMDB API
 
-const fanArtSearch = async (tmdb_id) => {
+const TMDBSearch = async (tmdb_id) => {
   const searchResult = await fetch(
-    `http://webservice.fanart.tv/v3/movies/${tmdb_id}?api_key=${FANART_KEY}`
+    `https://api.themoviedb.org/3/movie/${tmdb_id}/images?api_key=${TMDB_KEY}&language=en`
   );
   const parsedResult = await searchResult.json();
   return parsedResult;
+};
+
+// GET POSTER IMAGE
+const getPosterImage = async (tmdb_id) => {
+  const searchResult = await TMDBSearch(tmdb_id);
+  const posterList = await searchResult.posters;
+  const sortedList = await posterList.sort(
+    (a, b) => b.vote_average - a.vote_average
+  );
+  const fullURL = `http://image.tmdb.org/t/p/original${sortedList[0].file_path}`;
+  return fullURL;
 };
 
 // const getCover = async (id) => fanArtSearch(id).movieposter[0];
@@ -88,7 +100,7 @@ const cardCreator = (data) => {
 };
 
 // FILL CARD WITH API INFO
-const cardFiller = (card, data) => {
+const cardFiller = async (card, data) => {
   const title = document.createElement("p");
   title.innerText = data.movie.title;
   title.classList.add = "cardTitle";
@@ -100,79 +112,107 @@ const cardFiller = (card, data) => {
   card.appendChild(year);
 
   const poster = document.createElement("img");
-  poster.src = fanArtSearch(data.movie.ids.tmdb);
+  poster.src = await getPosterImage(data.movie.ids.tmdb);
   poster.classList.add = "cardPoster";
   card.appendChild(poster);
 };
 
-// textQuerySearch > fanartAPI > cardCreator
-
 // submitButtonListener > submitButtonAction > cardCreator > cardFiller > getImage
 
-const tronResult = [
-  {
-    type: "movie",
-    score: 1000,
-    movie: {
-      title: "Tron",
-      year: 1982,
-      ids: { trakt: 66, slug: "tron-1982", imdb: "tt0084827", tmdb: 97 },
-    },
-  },
-  {
-    type: "movie",
-    score: 723.0286,
-    movie: {
-      title: "TRON: Legacy",
-      year: 2010,
-      ids: {
-        trakt: 12601,
-        slug: "tron-legacy-2010",
-        imdb: "tt1104001",
-        tmdb: 20526,
-      },
-    },
-  },
-  {
-    type: "movie",
-    score: 311.7956,
-    movie: {
-      title: "TRON: Destiny",
-      year: 2011,
-      ids: {
-        trakt: 419283,
-        slug: "tron-destiny-2011",
-        imdb: "tt4061290",
-        tmdb: 567883,
-      },
-    },
-  },
-  {
-    type: "movie",
-    score: 284.00876,
-    movie: {
-      title: "TRON: The Next Day",
-      year: 2011,
-      ids: {
-        trakt: 53924,
-        slug: "tron-the-next-day-2011",
-        imdb: "tt1865543",
-        tmdb: 73362,
-      },
-    },
-  },
-  {
-    type: "movie",
-    score: 237.11687,
-    movie: {
-      title: "The Making of TRON",
-      year: 2002,
-      ids: {
-        trakt: 53365,
-        slug: "the-making-of-tron-2002",
-        imdb: "tt0340232",
-        tmdb: 72645,
-      },
-    },
-  },
-];
+// const tronResult = [
+//   {
+//     type: "movie",
+//     score: 1000,
+//     movie: {
+//       title: "Tron",
+//       year: 1982,
+//       ids: { trakt: 66, slug: "tron-1982", imdb: "tt0084827", tmdb: 97 },
+//     },
+//   },
+//   {
+//     type: "movie",
+//     score: 723.0286,
+//     movie: {
+//       title: "TRON: Legacy",
+//       year: 2010,
+//       ids: {
+//         trakt: 12601,
+//         slug: "tron-legacy-2010",
+//         imdb: "tt1104001",
+//         tmdb: 20526,
+//       },
+//     },
+//   },
+//   {
+//     type: "movie",
+//     score: 311.7956,
+//     movie: {
+//       title: "TRON: Destiny",
+//       year: 2011,
+//       ids: {
+//         trakt: 419283,
+//         slug: "tron-destiny-2011",
+//         imdb: "tt4061290",
+//         tmdb: 567883,
+//       },
+//     },
+//   },
+//   {
+//     type: "movie",
+//     score: 284.00876,
+//     movie: {
+//       title: "TRON: The Next Day",
+//       year: 2011,
+//       ids: {
+//         trakt: 53924,
+//         slug: "tron-the-next-day-2011",
+//         imdb: "tt1865543",
+//         tmdb: 73362,
+//       },
+//     },
+//   },
+//   {
+//     type: "movie",
+//     score: 237.11687,
+//     movie: {
+//       title: "The Making of TRON",
+//       year: 2002,
+//       ids: {
+//         trakt: 53365,
+//         slug: "the-making-of-tron-2002",
+//         imdb: "tt0340232",
+//         tmdb: 72645,
+//       },
+//     },
+//   },
+// ];
+
+// const imageObject = [
+//   {
+//     aspect_ratio: 0.667,
+//     height: 1500,
+//     iso_639_1: "en",
+//     file_path: "/2CW5uGjWj7gWk3I7fvSJ0iWo6Cp.jpg",
+//     vote_average: 5.312,
+//     vote_count: 1,
+//     width: 1000,
+//   },
+//   {
+//     aspect_ratio: 0.667,
+//     height: 1500,
+//     iso_639_1: "en",
+//     file_path: "/o8ZrKMFAb4KLBH1pwdLK8XZ4oE0.jpg",
+//     vote_average: 5.252,
+//     vote_count: 4,
+//     width: 1000,
+//   },
+//   {
+//     aspect_ratio: 0.667,
+//     height: 900,
+//     iso_639_1: "en",
+//     file_path: "/nEOR6wG7C4ITVlJnh6MBgygTxcQ.jpg",
+//     vote_average: 5.106,
+//     vote_count: 2,
+//     width: 600,
+//   },
+// ];
