@@ -5,16 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="script.js" defer></script>
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="./css/bulma.min.css" />
     <link rel="stylesheet" href="style.css" />
+
+    <script type="module" src="./script/script.js" defer></script>
 
     <title>Placeholder</title>
   </head>
+
   <body>
     <header>
       <img
@@ -22,23 +20,36 @@
         alt="website logo"
         class="website-logo is"
       />
+
       <h1 class="website-title">Website Title</h1>
     </header>
+
     <main>
-      <input
-        type="text"
-        name="searchBox"
-        id="searchBox"
-        placeholder="Search..."
-      />
-      <button>Search</button>
-      <select name="advancedSearch" id="advancedSearch">
-        <option value="Genres">Genres</option>
-        <option value="Movies">Movies</option>
-        <option value="Shows">Shows</option>
-      </select>
-      <section class="searchResults"></section>
+      <!-- SEARCH CONTAINER -->
+      <section class="search-container">
+        <!-- SEARCH -->
+        <input
+          type="text"
+          name="searchBox"
+          id="searchBox"
+          placeholder="Search..."
+        />
+        <!-- SUBMIT SEARCH BUTTON -->
+        <button class="submit-button">Search</button>
+        <!-- DROPDOWN MENU -->
+        <select name="advancedSearch" id="advancedSearch">
+          <option value="movie">Movies</option>
+          <option value="person">Person</option>
+          <option value="show">Shows</option>
+        </select>
+      </section>
+      <!-- SEARCH RESULTS -->
+      <section class="search-results-container">
+        <ul class="search-results"></ul>
+      </section>
     </main>
+
+    <!-- MODAL -->
     <section>
       <div class="modal">
         <div class="modal-background"></div>
