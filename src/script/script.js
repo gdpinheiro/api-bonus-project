@@ -94,26 +94,26 @@ const cardCreator = (data) => {
   const newCard = document.createElement("li");
   newCard.classList.add = "result-card";
   newCard.id = data.movie.ids.tmdb;
-  addListeners(`[id="${newCard.id}"]`, "click", openMovieCard);
   cardFiller(newCard, data);
   resultList.appendChild(newCard);
+  addListeners(`[id="${newCard.id}"]`, "click", openMovieCard);
 };
 
 // FILL CARD WITH API INFO
 const cardFiller = async (card, data) => {
   const title = document.createElement("p");
-  title.innerText = data.movie.title;
-  title.classList.add = "cardTitle";
+  title.innerText = `${data.movie.title} `;
+  title.className = "cardTitle";
   card.appendChild(title);
 
   const year = document.createElement("p");
-  year.innerText = data.movie.year;
-  year.classList.add = "cardYear";
+  year.innerText = `(${data.movie.year})`;
+  year.className = "cardYear";
   card.appendChild(year);
 
   const poster = document.createElement("img");
   poster.src = await getPosterImage(data.movie.ids.tmdb);
-  poster.classList.add = "cardPoster";
+  poster.className = "cardPoster image";
   card.appendChild(poster);
 };
 
