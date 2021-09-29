@@ -3,7 +3,7 @@
 APIs Utilizadas:
 
 - [trakt.tv](https://trakt.docs.apiary.io/)
-- [themoviedb.org](https://developers.themoviedb.org/)
+- [themoviedb.org](https://developers.themoviedb.org/3)
 
 ### Requisitos obrigatórios:
 
