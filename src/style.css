@@ -128,10 +128,10 @@ table {
   border-spacing: 0;
 }
 
-.website-logo {
-  width: 100px;
+body {
+  min-height: 100vh;
 }
 
-img {
-  width: 200px;
+.mainContainer {
+  padding-top: 20%;
 }
