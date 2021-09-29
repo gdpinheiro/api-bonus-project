@@ -2,8 +2,8 @@
 
 APIs Utilizadas:
 
-- [Trakt.tv](https://trakt.docs.apiary.io/)
-- [Fanart.tv](https://fanarttv.docs.apiary.io/)
+- [trakt.tv](https://trakt.docs.apiary.io/)
+- [themoviedb.org](https://developers.themoviedb.org/)
 
 ### Requisitos obrigatórios:
 
