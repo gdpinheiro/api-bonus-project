@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/48d07b565c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./script/script.js" defer></script>
+
+    <link
+      rel="shortcut icon"
+      href="img/Movie Search Logo Small.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="./css/bulma.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Movie Search</title>
+  </head>
+  <body class="has-background-dark">
+    <main
+      class="
+        mainContainer
+        container
+        is-max-desktop is-flex is-flex-direction-column is-align-items-center
+      "
+    >
+      <!-- LOGO -->
+      <section>
+        <img
+          src="./img/Movie Search Logo.png"
+          alt="website logo"
+          class="website-logo image"
+        />
+      </section>
+      <!-- SEARCH CONTAINER -->
+      <section class="search-container is-flex">
+        <!-- SEARCH -->
+        <input
+          type="text"
+          name="searchBox"
+          id="searchBox"
+          placeholder="Search..."
+          class="input is-large"
+        />
+        <!-- SUBMIT SEARCH BUTTON -->
+        <button class="submit-button button is-large is-outlined">
+          <span class="icon">
+            <i class="fas fa-search"></i>
+          </span>
+        </button>
+        <!-- DROPDOWN MENU -->
+        <div class="select is-large">
+          <select name="advancedSearch" id="advancedSearch">
+            <option value="movie">Movies</option>
+            <option value="person">Person</option>
+            <option value="show">Shows</option>
+          </select>
+        </div>
+      </section>
+      <!-- SEARCH RESULTS -->
+      <section class="search-results-container">
+        <ul
+          class="
+            search-results
+            container
+            is-max-desktop is-flex is-flex-wrap-wrap
+          "
+        ></ul>
+      </section>
+    </main>
+    <!-- MODAL -->
+    <section>
+      <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Modal title</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+          </section>
+          <footer class="modal-card-foot"></footer>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
